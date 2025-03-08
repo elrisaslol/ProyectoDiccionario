@@ -1,5 +1,6 @@
 package org.chatta.movieproyect.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.OnDelete;
@@ -27,6 +28,7 @@ public class Definicion {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "palabra_id", nullable = false)
+    @JsonBackReference
     private org.chatta.movieproyect.model.Palabra palabra;
 
     public Long getId() {

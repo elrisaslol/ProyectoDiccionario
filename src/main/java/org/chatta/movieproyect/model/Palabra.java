@@ -1,5 +1,6 @@
 package org.chatta.movieproyect.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -22,10 +23,11 @@ public class Palabra {
 
     @Size(max = 50)
     @NotNull
-    @Column(name = "categoriaGramatical", nullable = false, length = 50)
+    @Column(name = "categoria_gramatical", nullable = false, length = 50)
     private String categoriaGramatical;
 
     @OneToMany(mappedBy = "palabra")
+    @JsonManagedReference
     private Set<Definicion> definicions = new LinkedHashSet<>();
 
     public Long getId() {
