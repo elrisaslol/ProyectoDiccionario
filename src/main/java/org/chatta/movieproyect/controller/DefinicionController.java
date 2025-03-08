@@ -60,7 +60,7 @@ public class DefinicionController {
 
     @CrossOrigin
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDefinicionById(@PathVariable Long id) throws RecordNotFoundException{
+    public ResponseEntity<Void> deleteDefinicion(@PathVariable Long id) throws RecordNotFoundException{
         definicionService.deleteDefinicion(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 
